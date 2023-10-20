@@ -1,0 +1,66 @@
+import React, { useState } from 'react';
+
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [userVehicles, setUserVehicles] = useState([]);
+  
+  const handleLogin = () => {
+    // Kullanıcı girişi yapma işlemleri
+    // API ile kullanıcı adı ve şifre doğrulaması yapılmalı
+    setLoggedIn(true);
+  }
+
+  const handleAddVehicle = (vehicle) => {
+    // Yeni araç eklemek için API çağrısı
+    // Aynı aracın eklenip eklenmediği kontrol edilmeli
+    // Plaka doğrulaması yapılmalı
+  }
+
+  const handleUpdateVehicle = (vehicle) => {
+    // Araç güncelleme işlemi
+  }
+
+  const handleDeleteVehicle = (vehicleId) => {
+    // Araç silme işlemi
+  }
+
+  const handleChangePassword = (oldPassword, newPassword) => {
+    // Şifre değiştirme işlemi
+  }
+
+  const handleLogout = () => {
+    // Çıkış yapma işlemi
+    setLoggedIn(false);
+  }
+
+  return (
+    <div>
+      {loggedIn ? (
+        <div>
+          <button onClick={handleLogout}>Çıkış Yap</button>
+          {/* Kullanıcının araçlarını görüntülemesi */}
+        </div>
+      ) : (
+        <div>
+          <input
+            type="text"
+            placeholder="Kullanıcı Adı"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Şifre"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button onClick={handleLogin}>Giriş Yap</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
